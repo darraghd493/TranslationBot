@@ -1,2 +1,2 @@
 # TranslationBot
-A translation bot for Discord.
+A basic translation bot for Discord utilizing Google Translate.
