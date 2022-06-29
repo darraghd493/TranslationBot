@@ -1,3 +1,3 @@
 @echo off
-git push origin dev
+git push --set-upstream origin dev
 pause
