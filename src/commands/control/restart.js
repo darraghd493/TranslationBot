@@ -9,7 +9,7 @@ module.exports = {
         message.channel.send({
             content: `<@${message.author.id}>, restarting bot...`}).then((botMessage) => {
                 setTimeout(() => {
-                    if (botMessage.editable) // https://github.com/discordjs/discord.js/issues/7091
+                    if (botMessage.editable)
                         botMessage.delete();
                     
                     setTimeout(() => {

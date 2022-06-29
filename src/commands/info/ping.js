@@ -42,14 +42,15 @@ module.exports = {
         const preSendTime = Date.now();
 
         message.channel.send({
-            content: `<@${message.author.id}>, collecting ping information...`}).then((latencyMessage) => {
-                const serverLatency = latencyMessage.createdAt.getTime() - preSendTime;
+            content: `<@${message.author.id}>, collecting ping information...`
+        }).then((latencyMessage) => {
+            const serverLatency = latencyMessage.createdAt.getTime() - preSendTime;
 
-                latencyMessage.edit({
-                content: `<@${message.author.id}>, my latency is ${generateLatencyDescriptiveString(serverLatency)}, with ${generateLatencyDescriptiveString(client.ws.ping)} for the Discord API.`}).then((editedLatencyMessage) => {
-                setTimeout(() => {
-                    if (editedLatencyMessage.editable) // https://github.com/discordjs/discord.js/issues/7091
-                        editedLatencyMessage.delete();
+            latencyMessage.edit({
+            content: `<@${message.author.id}>, my latency is ${generateLatencyDescriptiveString(serverLatency)}, with ${generateLatencyDescriptiveString(client.ws.ping)} for the Discord API.`}).then((editedLatencyMessage) => {
+            setTimeout(() => {
+                if (editedLatencyMessage.editable)
+                    editedLatencyMessage.delete();
                 }, 15000);
             });
         });
