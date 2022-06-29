@@ -1,21 +1,18 @@
-const { startClient } = require('../../../');
-
 module.exports = {
-    name: "restart",
+    name: "kill",
     aliases: [],
-    description: "Restarts the bot",
+    description: "Kills the bot",
     
     run: async function(message, client, args) {
         message.channel.send({
-            content: `<@${message.author.id}>, restarting bot...`}).then((botMessage) => {
+            content: `<@${message.author.id}>, killing the bot...`}).then((botMessage) => {
                 setTimeout(() => {
                     if (botMessage.editable) // https://github.com/discordjs/discord.js/issues/7091
                         botMessage.delete();
                     
                     setTimeout(() => {
-                        console.log("Restarting client...");
+                        console.log("Killing client...");
                         client.destroy();
-                        startClient();
                     }, 1000);
                 }, 5000);
         });
